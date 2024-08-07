@@ -2,7 +2,7 @@ package io.lwcl.threads2;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Counter counter = new Counter();
         IncrementThread[] threads = new IncrementThread[5];
 
@@ -12,7 +12,9 @@ public class Main {
         }
 
         for (IncrementThread thread : threads) {
-            thread.start();
+            thread.join();
         }
+
+        System.out.println("Valor final del contador " + counter.getValue());
     }
 }
