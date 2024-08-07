@@ -4,11 +4,11 @@ public class Counter {
 
     private int value = 0;
 
-    public void increment() {
+    public synchronized void increment() {
         value++;
     }
 
-    public int getValue() {
+    public synchronized int getValue() {
         return value;
     }
 }
